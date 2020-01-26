@@ -1,2 +1,2 @@
-include(":app", ":core", ":data-movie")
+include(":app", ":core", ":data-movie", ":domain-movie")
 rootProject.name = "Movielicious"

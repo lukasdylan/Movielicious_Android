@@ -15,7 +15,10 @@ import javax.inject.Singleton
  * Created by lukasdylan on 2020-01-24
  */
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, CoreModules::class, DataMovieModule::class, TestActivityModule::class])
+@Component(
+    modules = [AndroidInjectionModule::class, CoreModules::class, DataMovieModule::class,
+        TestActivityModule::class]
+)
 interface AppComponent : AndroidInjector<DaggerApplication> {
 
     @Component.Builder
