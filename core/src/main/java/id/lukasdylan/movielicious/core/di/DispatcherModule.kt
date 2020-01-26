@@ -10,7 +10,7 @@ import javax.inject.Singleton
  * Created by lukasdylan on 2020-01-24
  */
 @Module
-class DispatcherModule {
+internal class DispatcherModule {
 
     @Provides
     @Singleton

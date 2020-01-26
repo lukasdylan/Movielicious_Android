@@ -1,21 +1,25 @@
 package id.lukasdylan.movielicious.core.di
 
 import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import id.lukasdylan.movielicious.core.preferences.LanguagePreference
+import id.lukasdylan.movielicious.core.preferences.Preference
+import javax.inject.Qualifier
 
 /**
  * Created by lukasdylan on 2020-01-24
  */
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class LanguagePreferences
+
 @Module
-class PreferenceModule {
+internal class PreferenceModule {
 
     @Provides
-    @Singleton
-    fun provideSharedPreferences(application: Application): SharedPreferences {
-        return application.getSharedPreferences("movielicious", Context.MODE_PRIVATE)
+    @LanguagePreferences
+    fun provideLanguagePreference(application: Application): Preference<String> {
+        return LanguagePreference(application)
     }
 }

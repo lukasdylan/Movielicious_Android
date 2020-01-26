@@ -21,6 +21,8 @@ object Dependency {
     // endregion
 
     // region Others Library
+    const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2"
+    const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Version.RETROFIT}"
     const val OKHTTP3_LOGGING_INTERCEPTOR =
         "com.squareup.okhttp3:logging-interceptor:${Version.OKHTTP3_LOGGING_INTERCEPTOR}"
