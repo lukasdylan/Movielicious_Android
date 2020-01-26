@@ -1,4 +1,4 @@
-package id.lukasdylan.movielicious.core.base
+package id.lukasdylan.movielicious.core.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

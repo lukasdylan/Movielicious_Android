@@ -8,6 +8,7 @@ import id.lukasdylan.movielicious.core.extension.initTimber
 /**
  * Created by lukasdylan on 2020-01-13
  */
+@Suppress("unused")
 class MovieliciousApp : DaggerApplication() {
 
     override fun onCreate() {
