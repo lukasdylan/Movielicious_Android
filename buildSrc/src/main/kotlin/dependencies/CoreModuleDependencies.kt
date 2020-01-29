@@ -17,6 +17,7 @@ internal fun Project.configureCoreDependencies() = dependencies {
     add(ConfigurationType.IMPLEMENTATION, Dependency.APPCOMPAT)
     add(ConfigurationType.IMPLEMENTATION, Dependency.CORE_KTX)
     add(ConfigurationType.IMPLEMENTATION, Dependency.VIEWMODEL)
+    add(ConfigurationType.IMPLEMENTATION, Dependency.GOOGLE_MATERIAL)
     add(ConfigurationType.API, Dependency.VIEWMODEL_KTX)
     add(ConfigurationType.API, Dependency.LIVEDATA_KTX)
     add(ConfigurationType.API, Dependency.RETROFIT)

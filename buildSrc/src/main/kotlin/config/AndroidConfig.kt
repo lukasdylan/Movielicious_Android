@@ -5,7 +5,9 @@ import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.DefaultConfig
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 
 /**
  * Created by lukasdylan on 2020-01-11
@@ -42,6 +44,10 @@ internal fun Project.configureAndroid() = this.extensions.getByType<AppExtension
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    configure<AndroidExtensionsExtension> {
+        isExperimental = true
     }
 
     packagingOptions {
