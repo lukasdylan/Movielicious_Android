@@ -16,7 +16,7 @@ open class AppModulePlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         target.configureAppPlugin()
-        target.configureKotlinAndroidPlugins(useKapt = true)
+        target.configureKotlinAndroidPlugins()
         target.configureAndroid()
         target.tasks.withType<KotlinCompile> {
             kotlinOptions {

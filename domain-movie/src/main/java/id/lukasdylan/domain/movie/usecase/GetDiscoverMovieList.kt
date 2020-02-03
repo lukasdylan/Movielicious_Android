@@ -6,6 +6,7 @@ import id.lukasdylan.domain.movie.mapper.transforms
 import id.lukasdylan.movielicious.core.base.BaseUseCase
 import id.lukasdylan.movielicious.core.utils.DataResult
 import id.lukasdylan.movielicious.core.utils.DispatcherProvider
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -13,7 +14,7 @@ import javax.inject.Inject
  */
 class GetDiscoverMovieList @Inject constructor(
     private val movieDataManager: MovieDataManager,
-    dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider
 ) : BaseUseCase<Nothing, DataResult<MovieListResponse>, GetDiscoverMovieListResult>(
     dispatcherProvider.background()
 ) {
@@ -22,10 +23,13 @@ class GetDiscoverMovieList @Inject constructor(
         return movieDataManager.loadDiscoverList()
     }
 
-    override fun DataResult<MovieListResponse>.transformToUseCaseResult(): GetDiscoverMovieListResult {
+    override suspend fun DataResult<MovieListResponse>.transformToUseCaseResult(): GetDiscoverMovieListResult {
         return when (this) {
             is DataResult.Success -> {
-                val data = this.value.results.transforms()
+                val rawResponse = this.value.results
+                val data = withContext(dispatcherProvider.default()) {
+                    rawResponse.transforms()
+                }
                 GetDiscoverMovieListResult.Success(data)
             }
             is DataResult.Error -> GetDiscoverMovieListResult.Failed(

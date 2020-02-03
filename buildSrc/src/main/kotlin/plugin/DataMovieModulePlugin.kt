@@ -16,7 +16,7 @@ open class DataMovieModulePlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         target.configureLibraryPlugin()
-        target.configureKotlinAndroidPlugins(useKapt = true)
+        target.configureKotlinAndroidPlugins()
         target.configureLibraryAndroid {
             it.buildConfigField("String", "MOVIE_API_BASE_URL", "\"https://api.themoviedb.org/\"")
             it.buildConfigField("String", "MOVIE_IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/\"")

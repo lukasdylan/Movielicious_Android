@@ -2,8 +2,8 @@ package id.lukasdylan.movielicious
 
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
-import id.lukasdylan.movielicious.core.extension.initCoil
 import id.lukasdylan.movielicious.core.extension.initTimber
+import id.lukasdylan.movielicious.core.ui.initCoil
 
 /**
  * Created by lukasdylan on 2020-01-13

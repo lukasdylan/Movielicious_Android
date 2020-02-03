@@ -5,10 +5,9 @@ import org.gradle.api.Project
 /**
  * Created by lukasdylan on 2020-01-12
  */
-internal fun Project.configureKotlinAndroidPlugins(useKapt: Boolean = false) = with(plugins) {
+internal fun Project.configureKotlinAndroidPlugins() = with(plugins) {
     apply("kotlin-android")
     apply("kotlin-android-extensions")
-    if (useKapt) {
-        apply("kotlin-kapt")
-    }
+    apply("kotlin-kapt")
+    apply("androidx.navigation.safeargs.kotlin")
 }

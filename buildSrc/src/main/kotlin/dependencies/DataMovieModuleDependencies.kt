@@ -13,8 +13,8 @@ internal fun Project.configureDataMovieDependencies() = dependencies {
         ConfigurationType.IMPLEMENTATION,
         fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar")))
     )
-    add(ConfigurationType.IMPLEMENTATION, Dependency.CORE_KTX)
     add(ConfigurationType.IMPLEMENTATION, project(":core"))
+    add(ConfigurationType.IMPLEMENTATION, Dependency.RETROFIT_CONVERTER_MOSHI)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.MOSHI_CODEGEN)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.DAGGER_COMPILER)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.DAGGER_ANDROID_PROCESSOR)

@@ -5,6 +5,10 @@ object Dependency {
     // region Kotlin Library
     const val KOTLIN_STD_LIBRARY =
         "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.KOTLIN_STD_LIBRARY}"
+    const val COROUTINES_CORE =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.KOTLIN_COROUTINES}"
+    const val COROUTINES_ANDROID =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.KOTLIN_COROUTINES}"
     // endregion
 
     // region AndroidX Library
@@ -18,11 +22,15 @@ object Dependency {
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.ANDROIDX_LIFECYCLE}"
     const val LIVEDATA_KTX =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Version.ANDROIDX_LIFECYCLE}"
+    const val NAVIGATION_FRAGMENT =
+        "androidx.navigation:navigation-fragment-ktx:${Version.ANDROIDX_NAVIGATION}"
+    const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Version.ANDROIDX_NAVIGATION}"
+    const val NAVIGATION_RUNTIME =
+        "androidx.navigation:navigation-runtime-ktx:${Version.ANDROIDX_NAVIGATION}"
+    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Version.ANDROIDX_FRAGMENT_KTX}"
     // endregion
 
     // region Others Library
-    const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2"
-    const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Version.RETROFIT}"
     const val OKHTTP3_LOGGING_INTERCEPTOR =
         "com.squareup.okhttp3:logging-interceptor:${Version.OKHTTP3_LOGGING_INTERCEPTOR}"
@@ -49,10 +57,13 @@ object Dependency {
 
     object Version {
         const val KOTLIN_STD_LIBRARY = "1.3.61"
+        const val KOTLIN_COROUTINES = "1.2.2"
         const val ANDROIDX_APPCOMPAT = "1.1.0"
         const val ANDROIDX_CONSTRAINT_LAYOUT = "2.0.0-beta4"
-        const val ANDROIDX_LIFECYCLE = "2.2.0-rc03"
-        const val GOOGLE_MATERIAL = "1.0.0"
+        const val ANDROIDX_LIFECYCLE = "2.2.0"
+        const val ANDROIDX_NAVIGATION = "2.2.0"
+        const val ANDROIDX_FRAGMENT_KTX = "1.2.0"
+        const val GOOGLE_MATERIAL = "1.2.0-alpha04"
         const val RETROFIT = "2.6.2"
         const val OKHTTP3_LOGGING_INTERCEPTOR = "4.2.2"
         const val RETROFIT_CONVERTER_MOSHI = "2.6.0"

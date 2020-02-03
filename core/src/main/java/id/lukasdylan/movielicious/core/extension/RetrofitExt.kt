@@ -14,7 +14,7 @@ import id.lukasdylan.movielicious.core.utils.DataResult
 suspend fun <T : Any> Call<T>.awaitResult(): DataResult<T> {
     return suspendCancellableCoroutine { continuation ->
         enqueue(object : Callback<T> {
-            override fun onResponse(call: Call<T>?, response: Response<T>) {
+            override fun onResponse(call: Call<T>, response: Response<T>) {
                 continuation.resumeWith(runCatching {
                     if (response.isSuccessful) {
                         val body = response.body()

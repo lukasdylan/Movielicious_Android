@@ -11,7 +11,7 @@ abstract class BaseUseCase<RequestParam, ResponseObject, UseCaseResult>
 
     protected abstract suspend fun execute(param: RequestParam?): ResponseObject
 
-    protected abstract fun ResponseObject.transformToUseCaseResult(): UseCaseResult
+    protected abstract suspend fun ResponseObject.transformToUseCaseResult(): UseCaseResult
 
     suspend fun getResult(param: RequestParam? = null): UseCaseResult {
         val executionResult = withContext(dispatcher) {
