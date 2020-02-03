@@ -1,4 +1,4 @@
-package id.lukasdylan.movielicious.core.widget
+package id.lukasdylan.movielicious.core.ui.widget
 
 import android.graphics.Rect
 import android.view.View

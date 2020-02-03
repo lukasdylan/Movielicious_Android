@@ -17,13 +17,15 @@ interface MovieApiService {
     @GET(DISCOVER_MOVIE_ENDPOINT)
     fun fetchMovieList(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("region") region: String = "ID"
     ): Call<MovieListResponse>
 
     @GET(DETAIL_MOVIE_ENDPOINT)
     fun fetchDetailMovie(
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("region") region: String = "ID"
     ): Call<MovieEntity>
 }

@@ -1,4 +1,4 @@
-package id.lukasdylan.movielicious.test
+package id.lukasdylan.movielicious.presentation.home
 
 import androidx.lifecycle.ViewModel
 import dagger.Binds
@@ -8,15 +8,15 @@ import dagger.multibindings.IntoMap
 import id.lukasdylan.movielicious.core.utils.ViewModelKey
 
 /**
- * Created by lukasdylan on 2020-01-25
+ * Created by lukasdylan on 2020-02-01
  */
 @Module
-abstract class TestActivityModule {
+abstract class HomeModule {
     @Binds
     @IntoMap
-    @ViewModelKey(TestViewModel::class)
-    abstract fun bindUserViewModel(testViewModel: TestViewModel): ViewModel
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeViewModel(homeViewModel: HomeViewModel): ViewModel
 
     @ContributesAndroidInjector
-    abstract fun contributeTestActivity(): TestActivity
+    abstract fun contributeHomeFragment(): HomeFragment
 }

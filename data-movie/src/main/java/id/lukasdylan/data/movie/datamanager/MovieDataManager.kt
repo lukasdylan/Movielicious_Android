@@ -4,8 +4,8 @@ import id.lukasdylan.data.movie.BuildConfig
 import id.lukasdylan.data.movie.model.MovieEntity
 import id.lukasdylan.data.movie.model.MovieListResponse
 import id.lukasdylan.data.movie.service.MovieApiService
-import id.lukasdylan.movielicious.core.di.LanguagePreferences
 import id.lukasdylan.movielicious.core.extension.awaitResult
+import id.lukasdylan.movielicious.core.preferences.LanguagePreferences
 import id.lukasdylan.movielicious.core.preferences.Preference
 import id.lukasdylan.movielicious.core.utils.DataResult
 import javax.inject.Inject

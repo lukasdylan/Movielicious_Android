@@ -15,7 +15,7 @@ abstract class BaseLibraryModulePlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         target.configureLibraryPlugin()
-        target.configureKotlinAndroidPlugins(useKapt = true)
+        target.configureKotlinAndroidPlugins()
         target.configureLibraryAndroid()
         target.tasks.withType<KotlinCompile> {
             kotlinOptions {

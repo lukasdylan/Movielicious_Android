@@ -1,5 +1,6 @@
 package id.lukasdylan.movielicious.core.base
 
+import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -24,6 +25,7 @@ abstract class BaseViewModel<State : ViewState, Action : ViewAction, SideEffect 
     val viewSideEffect: LiveData<SideEffect> =
         Transformations.switchMap(statelessAction, ::handleAction)
 
+    @MainThread
     fun execute(action: Action) = when (action) {
         is StatelessViewAction -> statelessAction.value = action
         else -> viewAction.value = action
