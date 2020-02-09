@@ -16,8 +16,6 @@ internal fun Project.configurePresentationHomeDependencies() = dependencies {
     add(ConfigurationType.IMPLEMENTATION, project(":core"))
     add(ConfigurationType.IMPLEMENTATION, project(":core-ui"))
     add(ConfigurationType.IMPLEMENTATION, project(":domain-movie"))
-    add(ConfigurationType.IMPLEMENTATION, Dependency.COROUTINES_CORE)
-    add(ConfigurationType.IMPLEMENTATION, Dependency.COROUTINES_ANDROID)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.DAGGER_COMPILER)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.DAGGER_ANDROID_PROCESSOR)
     add(ConfigurationType.TEST_IMPLEMENTATION, Dependency.JUNIT)

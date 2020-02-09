@@ -13,7 +13,7 @@ object Dependency {
 
     // region AndroidX Library
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Version.ANDROIDX_APPCOMPAT}"
-    const val CORE_KTX = "androidx.core:core-ktx:${Version.ANDROIDX_APPCOMPAT}"
+    const val CORE_KTX = "androidx.core:core-ktx:${Version.ANDROIDX_CORE_KTX}"
     const val GOOGLE_MATERIAL = "com.google.android.material:material:${Version.GOOGLE_MATERIAL}"
     const val CONSTRAINT_LAYOUT =
         "androidx.constraintlayout:constraintlayout:${Version.ANDROIDX_CONSTRAINT_LAYOUT}"
@@ -25,8 +25,6 @@ object Dependency {
     const val NAVIGATION_FRAGMENT =
         "androidx.navigation:navigation-fragment-ktx:${Version.ANDROIDX_NAVIGATION}"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Version.ANDROIDX_NAVIGATION}"
-    const val NAVIGATION_RUNTIME =
-        "androidx.navigation:navigation-runtime-ktx:${Version.ANDROIDX_NAVIGATION}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Version.ANDROIDX_FRAGMENT_KTX}"
     // endregion
 
@@ -44,6 +42,7 @@ object Dependency {
     const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Version.DAGGER}"
     const val DAGGER_ANDROID_PROCESSOR =
         "com.google.dagger:dagger-android-processor:${Version.DAGGER}"
+    const val LOTTIE = "com.airbnb.android:lottie:${Version.LOTTIE}"
     // endregion
 
     // region Unit Test Library
@@ -57,20 +56,22 @@ object Dependency {
 
     object Version {
         const val KOTLIN_STD_LIBRARY = "1.3.61"
-        const val KOTLIN_COROUTINES = "1.2.2"
+        const val KOTLIN_COROUTINES = "1.3.3"
         const val ANDROIDX_APPCOMPAT = "1.1.0"
+        const val ANDROIDX_CORE_KTX = "1.2.0"
         const val ANDROIDX_CONSTRAINT_LAYOUT = "2.0.0-beta4"
         const val ANDROIDX_LIFECYCLE = "2.2.0"
-        const val ANDROIDX_NAVIGATION = "2.2.0"
-        const val ANDROIDX_FRAGMENT_KTX = "1.2.0"
+        const val ANDROIDX_NAVIGATION = "2.2.1"
+        const val ANDROIDX_FRAGMENT_KTX = "1.2.1"
         const val GOOGLE_MATERIAL = "1.2.0-alpha04"
-        const val RETROFIT = "2.6.2"
-        const val OKHTTP3_LOGGING_INTERCEPTOR = "4.2.2"
-        const val RETROFIT_CONVERTER_MOSHI = "2.6.0"
+        const val RETROFIT = "2.7.1"
+        const val OKHTTP3_LOGGING_INTERCEPTOR = "4.3.1"
+        const val RETROFIT_CONVERTER_MOSHI = "2.7.1"
         const val MOSHI_CODEGEN = "1.8.0"
         const val TIMBER = "4.7.1"
-        const val COIL = "0.9.1"
+        const val COIL = "0.9.5"
         const val DAGGER = "2.25.4"
+        const val LOTTIE = "3.3.1"
         const val JUNIT = "4.12"
         const val TEST_EXT_JUNIT = "1.1.1"
         const val ESPRESSO_CORE = "3.2.0"

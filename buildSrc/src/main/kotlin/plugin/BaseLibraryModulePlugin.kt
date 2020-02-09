@@ -1,7 +1,6 @@
 package plugin
 
 import config.configureKotlinAndroidPlugins
-import config.configureLibraryAndroid
 import config.configureLibraryPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,7 +15,7 @@ abstract class BaseLibraryModulePlugin : Plugin<Project> {
     override fun apply(target: Project) {
         target.configureLibraryPlugin()
         target.configureKotlinAndroidPlugins()
-        target.configureLibraryAndroid()
+        target.applyLibraryAndroid()
         target.tasks.withType<KotlinCompile> {
             kotlinOptions {
                 jvmTarget = "1.8"
@@ -26,4 +25,6 @@ abstract class BaseLibraryModulePlugin : Plugin<Project> {
     }
 
     abstract fun Project.applyModuleDependencies()
+
+    abstract fun Project.applyLibraryAndroid()
 }

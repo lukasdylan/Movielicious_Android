@@ -11,13 +11,12 @@
         android:id="@+id/rv_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layoutAnimation="@anim/grid_layout_animation_from_bottom"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <androidx.core.widget.ContentLoadingProgressBar
+    <ProgressBar
         android:id="@+id/pb_loading"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"

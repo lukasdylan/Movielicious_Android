@@ -20,10 +20,10 @@ internal fun Project.configureCoreUiDependencies() = dependencies {
     add(ConfigurationType.IMPLEMENTATION, Dependency.TIMBER)
     add(ConfigurationType.IMPLEMENTATION, Dependency.OKHTTP3_LOGGING_INTERCEPTOR)
     add(ConfigurationType.API, Dependency.COIL)
-    add(ConfigurationType.API, Dependency.NAVIGATION_RUNTIME)
     add(ConfigurationType.API, Dependency.NAVIGATION_FRAGMENT)
     add(ConfigurationType.API, Dependency.NAVIGATION_UI)
     add(ConfigurationType.API, Dependency.FRAGMENT_KTX)
     add(ConfigurationType.API, Dependency.VIEWMODEL_KTX)
     add(ConfigurationType.API, Dependency.LIVEDATA_KTX)
+    add(ConfigurationType.API, Dependency.LOTTIE)
 }

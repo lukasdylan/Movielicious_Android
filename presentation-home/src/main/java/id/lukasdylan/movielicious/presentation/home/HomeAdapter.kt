@@ -1,10 +1,10 @@
 package id.lukasdylan.movielicious.presentation.home
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import id.lukasdylan.domain.movie.model.Movie
+import id.lukasdylan.movielicious.core.ui.inflateView
 
 /**
  * Created by lukasdylan on 2020-02-01
@@ -12,12 +12,11 @@ import id.lukasdylan.domain.movie.model.Movie
 class HomeAdapter : ListAdapter<Movie, HomeViewHolder>(MovieDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_discover, parent, false)
-        return HomeViewHolder(view)
+        return HomeViewHolder(parent.inflateView(R.layout.item_home_discover))
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it) }
+        getItem(position)?.let(holder::bind)
     }
 
     object MovieDiffCallback : DiffUtil.ItemCallback<Movie>() {

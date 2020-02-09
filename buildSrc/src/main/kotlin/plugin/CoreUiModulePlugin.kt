@@ -1,5 +1,6 @@
 package plugin
 
+import config.configureLibraryAndroid
 import dependencies.configureCoreUiDependencies
 import org.gradle.api.Project
 
@@ -10,5 +11,11 @@ import org.gradle.api.Project
 open class CoreUiModulePlugin : BaseLibraryModulePlugin() {
     override fun Project.applyModuleDependencies() {
         configureCoreUiDependencies()
+    }
+
+    override fun Project.applyLibraryAndroid() {
+        configureLibraryAndroid {
+            it.buildConfigField("String", "MOVIELICIOUS_HOSTNAME", "\"movieliciousapp://\"")
+        }
     }
 }

@@ -18,6 +18,7 @@ internal fun Project.configureAppDependencies() = dependencies {
     add(ConfigurationType.IMPLEMENTATION, project(":data-movie"))
     add(ConfigurationType.IMPLEMENTATION, project(":domain-movie"))
     add(ConfigurationType.IMPLEMENTATION, project(":presentation-home"))
+    add(ConfigurationType.IMPLEMENTATION, project(":presentation-movie"))
     add(ConfigurationType.IMPLEMENTATION, Dependency.RETROFIT_CONVERTER_MOSHI)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.DAGGER_COMPILER)
     add(ConfigurationType.KOTLIN_ANNOTATION_PROCESSOR, Dependency.DAGGER_ANDROID_PROCESSOR)

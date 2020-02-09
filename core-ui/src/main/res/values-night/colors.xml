@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">@android:color/holo_orange_dark</color>
     <color name="colorAccent">#D81B60</color>
     <color name="textPrimaryColor">@android:color/white</color>
-    <color name="splashBackgroundColor">@android:color/black</color>
+    <color name="splashBackgroundColor">#121212</color>
 </resources>
