@@ -8,4 +8,4 @@ import com.squareup.moshi.JsonClass
  */
 @Keep
 @JsonClass(generateAdapter = true)
-data class MovieListResponse(val results: List<MovieEntity>? = null)
+data class MovieListResponse(val results: List<MovieResponse>? = null)

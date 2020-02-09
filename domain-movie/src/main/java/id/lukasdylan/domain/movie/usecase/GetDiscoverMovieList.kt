@@ -2,8 +2,10 @@ package id.lukasdylan.domain.movie.usecase
 
 import id.lukasdylan.data.movie.datamanager.MovieDataManager
 import id.lukasdylan.data.movie.model.MovieListResponse
-import id.lukasdylan.domain.movie.mapper.transforms
+import id.lukasdylan.domain.movie.mapper.moviesTransforms
+import id.lukasdylan.domain.movie.model.Movie
 import id.lukasdylan.movielicious.core.base.BaseUseCase
+import id.lukasdylan.movielicious.core.base.UseCaseResult
 import id.lukasdylan.movielicious.core.utils.DataResult
 import id.lukasdylan.movielicious.core.utils.DispatcherProvider
 import kotlinx.coroutines.withContext
@@ -26,9 +28,8 @@ class GetDiscoverMovieList @Inject constructor(
     override suspend fun DataResult<MovieListResponse>.transformToUseCaseResult(): GetDiscoverMovieListResult {
         return when (this) {
             is DataResult.Success -> {
-                val rawResponse = this.value.results
                 val data = withContext(dispatcherProvider.default()) {
-                    rawResponse.transforms()
+                    this@transformToUseCaseResult.value.results.moviesTransforms()
                 }
                 GetDiscoverMovieListResult.Success(data)
             }
@@ -40,4 +41,9 @@ class GetDiscoverMovieList @Inject constructor(
             )
         }
     }
+}
+
+sealed class GetDiscoverMovieListResult : UseCaseResult() {
+    data class Success(val data: List<Movie>) : GetDiscoverMovieListResult()
+    data class Failed(val reason: String) : GetDiscoverMovieListResult()
 }

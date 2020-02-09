@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_navigation_graph"
+    app:startDestination="@id/detailMovieFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="id.lukasdylan.movielicious.presentation.movie.DetailMovieFragment"
+        android:label="Detail Movie"
+        tools:layout="@layout/fragment_detail_movie">
+
+        <argument
+            android:name="movie_id"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <deepLink app:uri="movieliciousapp://detailmovie/{movie_id}" />
+
+    </fragment>
+
+</navigation>

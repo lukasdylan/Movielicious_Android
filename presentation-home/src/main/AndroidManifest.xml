@@ -1,7 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="id.lukasdylan.movielicious.presentation.home" >
-
-    <application>
-        <activity android:name=".HomeActivity" />
-    </application>
-</manifest>
+<manifest package="id.lukasdylan.movielicious.presentation.home" />

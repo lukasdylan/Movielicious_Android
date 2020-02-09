@@ -1,5 +1,6 @@
 package plugin
 
+import config.configureLibraryAndroid
 import dependencies.configurePresentationHomeDependencies
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -15,5 +16,9 @@ open class PresentationHomeModulePlugin : BaseLibraryModulePlugin() {
             isExperimental = true
         }
         configurePresentationHomeDependencies()
+    }
+
+    override fun Project.applyLibraryAndroid() {
+        configureLibraryAndroid()
     }
 }

@@ -9,6 +9,7 @@ import dagger.android.DaggerApplication
 import id.lukasdylan.data.movie.module.DataMovieModule
 import id.lukasdylan.movielicious.core.di.CoreModules
 import id.lukasdylan.movielicious.presentation.home.HomeModule
+import id.lukasdylan.movielicious.presentation.movie.DetailMovieModule
 import javax.inject.Singleton
 
 /**
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [AndroidInjectionModule::class, CoreModules::class, DataMovieModule::class,
-        HomeModule::class]
+        HomeModule::class, DetailMovieModule::class]
 )
 interface AppComponent : AndroidInjector<DaggerApplication> {
 

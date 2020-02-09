@@ -9,7 +9,6 @@ import id.lukasdylan.movielicious.core.base.BaseViewModel
 import id.lukasdylan.movielicious.core.base.UseCaseResult
 import id.lukasdylan.movielicious.core.base.ViewSideEffect
 import id.lukasdylan.movielicious.core.extension.call
-import id.lukasdylan.movielicious.core.utils.Event
 import javax.inject.Inject
 
 /**
@@ -29,7 +28,6 @@ class HomeViewModel @Inject constructor(private val getDiscoverMovieList: GetDis
         liveData(viewModelScope.coroutineContext) {
             when (action) {
                 is HomeAction.LoadDiscoverList -> {
-                    getCurrentViewState().copy(loadingState = Event(true))
                     call(getDiscoverMovieList.getResult())
                 }
             }
@@ -39,13 +37,13 @@ class HomeViewModel @Inject constructor(private val getDiscoverMovieList: GetDis
         return when (this) {
             is GetDiscoverMovieListResult.Success -> {
                 getCurrentViewState().copy(
-                    data = Event(this.data),
-                    loadingState = Event(false))
+                    data = this.data,
+                    isLoading = false)
             }
             is GetDiscoverMovieListResult.Failed -> {
                 getCurrentViewState().copy(
-                    errorMessage = Event(this.reason),
-                    loadingState = Event(false)
+                    errorMessage = this.reason,
+                    isLoading = false
                 )
             }
         }

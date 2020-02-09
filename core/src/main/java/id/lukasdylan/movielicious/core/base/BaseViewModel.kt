@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import id.lukasdylan.movielicious.core.utils.SingleLiveEvent
 
 /**
  * Created by lukasdylan on 2020-01-01
@@ -21,7 +22,7 @@ abstract class BaseViewModel<State : ViewState, Action : ViewAction, SideEffect 
             renderViewState(it).updateCurrentViewState()
         }
 
-    private val statelessAction = MutableLiveData<StatelessViewAction>()
+    private val statelessAction = SingleLiveEvent<StatelessViewAction>()
     val viewSideEffect: LiveData<SideEffect> =
         Transformations.switchMap(statelessAction, ::handleAction)
 

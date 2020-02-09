@@ -1,44 +1,38 @@
 package id.lukasdylan.movielicious.presentation.home
 
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import dagger.android.support.DaggerFragment
+import dagger.android.support.AndroidSupportInjection
 import id.lukasdylan.domain.movie.model.Movie
-import id.lukasdylan.movielicious.core.extension.onContentChanged
 import id.lukasdylan.movielicious.core.ui.dpToPx
 import id.lukasdylan.movielicious.core.ui.widget.GridSpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
-class HomeFragment : DaggerFragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val homeViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
-    }
+    private val homeViewModel by viewModels<HomeViewModel>(factoryProducer = { viewModelFactory })
 
-    private val homeAdapter by lazy {
-        HomeAdapter()
+    private val homeAdapter = HomeAdapter()
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homeViewModel.execute(HomeAction.LoadDiscoverList)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,9 +47,9 @@ class HomeFragment : DaggerFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         homeViewModel.viewState.observe(viewLifecycleOwner) {
-            it.errorMessage.onContentChanged(this::showToast)
-            it.data.onContentChanged(this::printData)
-            it.loadingState.onContentChanged(this::showLoading)
+            it.errorMessage?.let(this::showToast)
+            printData(it.data)
+            showLoading(it.isLoading)
         }
     }
 
@@ -65,10 +59,9 @@ class HomeFragment : DaggerFragment() {
 
     private fun printData(data: List<Movie>) {
         homeAdapter.submitList(data)
-        rv_home?.scheduleLayoutAnimation()
     }
 
     private fun showLoading(isLoading: Boolean) {
-        if (isLoading) pb_loading?.show() else pb_loading?.hide()
+        pb_loading?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }
