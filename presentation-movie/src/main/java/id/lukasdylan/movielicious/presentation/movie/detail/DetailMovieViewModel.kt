@@ -1,4 +1,4 @@
-package id.lukasdylan.movielicious.presentation.movie
+package id.lukasdylan.movielicious.presentation.movie.detail
 
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
@@ -7,13 +7,11 @@ import id.lukasdylan.domain.movie.usecase.GetCreditsMovieResult
 import id.lukasdylan.domain.movie.usecase.GetDetailMovie
 import id.lukasdylan.domain.movie.usecase.GetDetailMovieResult
 import id.lukasdylan.movielicious.core.base.BaseViewModel
-import id.lukasdylan.movielicious.core.base.StatelessViewAction
 import id.lukasdylan.movielicious.core.base.UseCaseResult
-import id.lukasdylan.movielicious.core.extension.callSideEffect
+import id.lukasdylan.movielicious.core.base.ViewSideEffect
 import id.lukasdylan.movielicious.core.extension.callUseCase
 import id.lukasdylan.movielicious.core.utils.Event
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,7 +21,7 @@ import javax.inject.Inject
 class DetailMovieViewModel @Inject constructor(
     private val getDetailMovie: GetDetailMovie,
     private val getCreditsMovie: GetCreditsMovie
-) : BaseViewModel<DetailMovieViewState, DetailMovieAction, DetailMovieViewSideEffect>(initialState = DetailMovieViewState()) {
+) : BaseViewModel<DetailMovieViewState, DetailMovieAction, ViewSideEffect>(initialState = DetailMovieViewState()) {
 
     override fun renderViewState(result: UseCaseResult?): DetailMovieViewState {
         return when (result) {
@@ -39,7 +37,6 @@ class DetailMovieViewModel @Inject constructor(
                 is DetailMovieAction.LoadMovieData -> {
                     val movieId = action.movieId
                     coroutineScope {
-                        delay(250)
                         launch {
                             callUseCase(getDetailMovie.getResult(movieId))
                         }
@@ -47,21 +44,6 @@ class DetailMovieViewModel @Inject constructor(
                             callUseCase(getCreditsMovie.getResult(movieId))
                         }
                     }
-                }
-            }
-        }
-
-    override fun handleAction(action: StatelessViewAction) =
-        liveData<DetailMovieViewSideEffect>(viewModelScope.coroutineContext) {
-            when (action) {
-                is DetailMovieAction.OpenDetailOverviewScreen -> {
-                    val overview =
-                        getCurrentViewState().movieData?.peekContent()?.overview.orEmpty()
-                    callSideEffect(DetailMovieViewSideEffect.navigateToDetailOverview(overview))
-                }
-                is DetailMovieAction.OpenCastCreditsScreen -> {
-                    val castList = getCurrentViewState().castList?.peekContent().orEmpty()
-                    callSideEffect(DetailMovieViewSideEffect.navigateToCastCredits(castList))
                 }
             }
         }

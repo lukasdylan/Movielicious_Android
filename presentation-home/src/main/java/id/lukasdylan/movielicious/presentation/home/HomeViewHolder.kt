@@ -31,7 +31,7 @@ class HomeViewHolder(view: View) : BaseViewHolder(view) {
         }
 
         root_layout?.setOnClickListener {
-            val uri = Uri.parse("${BuildConfig.MOVIELICIOUS_HOSTNAME}detailmovie/${item.id}")
+            val uri = Uri.parse("${BuildConfig.MOVIELICIOUS_HOSTNAME}detailmovie2/${item.id}")
             it.findNavController().navigate(uri, navOptions)
         }
     }
