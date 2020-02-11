@@ -19,6 +19,43 @@
 
         <deepLink app:uri="movieliciousapp://detailmovie/{movie_id}" />
 
+        <deepLink app:uri="movielicious.app.id/{movie_id}" />
+
+        <action
+            android:id="@+id/open_credit_list_screen"
+            app:destination="@id/creditListFragment" />
+
+        <action
+            android:id="@+id/open_movie_overview_screen"
+            app:destination="@id/movieOverviewFragment" />
+
     </fragment>
+
+    <dialog
+        android:id="@+id/creditListFragment"
+        android:name="id.lukasdylan.movielicious.presentation.movie.credits.CreditListFragment"
+        android:label="Credits"
+        tools:layout="@layout/fragment_credit_list">
+
+        <argument
+            android:name="credit_list"
+            android:defaultValue="@null"
+            app:argType="id.lukasdylan.domain.movie.model.Cast[]"
+            app:nullable="true" />
+
+    </dialog>
+
+    <dialog
+        android:id="@+id/movieOverviewFragment"
+        android:name="id.lukasdylan.movielicious.presentation.movie.overview.MovieOverviewFragment"
+        android:label="Overview"
+        tools:layout="@layout/fragment_movie_overview">
+
+        <argument
+            android:name="overview"
+            app:argType="string"
+            android:defaultValue="No Overview" />
+
+    </dialog>
 
 </navigation>

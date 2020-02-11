@@ -2,6 +2,9 @@ package id.lukasdylan.movielicious.presentation.home
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -32,6 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         homeViewModel.execute(HomeAction.LoadDiscoverList)
     }
 
@@ -50,6 +54,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             it.errorMessage?.let(this::showToast)
             printData(it.data)
             showLoading(it.isLoading)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_home, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                showToast("Navigate to settings")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Presentation Movie</string>
+    <string name="vote_counts">from %s votes</string>
+    <string name="loading_movie_detail">Preparing Detail Movie...</string>
 </resources>

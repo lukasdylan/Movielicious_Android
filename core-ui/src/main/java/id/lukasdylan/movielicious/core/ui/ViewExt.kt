@@ -1,7 +1,6 @@
 package id.lukasdylan.movielicious.core.ui
 
 import android.app.Application
-import android.graphics.drawable.Drawable
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +38,7 @@ fun Application.initCoil() {
 
     Coil.setDefaultImageLoader {
         ImageLoader(this) {
-            placeholder(R.drawable.bg_loading_placeholder)
+            placeholder(R.drawable.bg_rounded_loading_placeholder)
             error(R.drawable.icon_no_image)
             okHttpClient(coilOkHttpClient)
         }
@@ -66,14 +65,6 @@ fun View.show() {
 
 fun View.hide(stillHadSpace: Boolean = false) {
     visibility = if (stillHadSpace) View.INVISIBLE else View.GONE
-}
-
-fun View.withNoBackground() {
-    withBackground(null)
-}
-
-fun View.withBackground(drawable: Drawable?) {
-    background = drawable
 }
 
 fun ViewGroup.inflateView(@LayoutRes layoutId: Int): View {
