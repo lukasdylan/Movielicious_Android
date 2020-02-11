@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movie_navigation_graph"
-    app:startDestination="@id/detailMovieFragment"
+    app:startDestination="@id/detailMovieFragmentV2"
     tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/detailMovieFragment"
-        android:name="id.lukasdylan.movielicious.presentation.movie.DetailMovieFragment"
+        android:id="@+id/detailMovieFragmentV2"
+        android:name="id.lukasdylan.movielicious.presentation.movie.detail.DetailMovieFragment"
         android:label="Detail Movie"
-        tools:layout="@layout/fragment_detail_movie">
+        tools:layout="@layout/fragment_detail_movie_v2">
 
         <argument
             android:name="movie_id"
             android:defaultValue="0"
             app:argType="integer" />
 
-        <deepLink app:uri="movieliciousapp://detailmovie/{movie_id}" />
+        <deepLink app:uri="movieliciousapp://detailmovie2/{movie_id}" />
 
-        <deepLink app:uri="movielicious.app.id/{movie_id}" />
+        <deepLink app:uri="movielicious.app.us/{movie_id}" />
 
         <action
             android:id="@+id/open_credit_list_screen"

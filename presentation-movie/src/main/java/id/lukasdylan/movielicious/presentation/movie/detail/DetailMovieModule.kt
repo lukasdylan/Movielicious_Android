@@ -1,4 +1,4 @@
-package id.lukasdylan.movielicious.presentation.movie
+package id.lukasdylan.movielicious.presentation.movie.detail
 
 import androidx.lifecycle.ViewModel
 import dagger.Binds
@@ -18,5 +18,5 @@ abstract class DetailMovieModule {
     abstract fun bindDetailMovieViewModel(viewModel: DetailMovieViewModel): ViewModel
 
     @ContributesAndroidInjector
-    abstract fun contributeDetailMovieFragment(): DetailMovieFragment
+    abstract fun contributeDetailMovieFragmentV2(): DetailMovieFragment
 }
