@@ -11,8 +11,6 @@ import id.lukasdylan.movielicious.core.ui.BuildConfig
 import id.lukasdylan.movielicious.core.ui.base.BaseViewHolder
 import id.lukasdylan.movielicious.core.ui.dpToPx
 import id.lukasdylan.movielicious.core.ui.slideLeftRightAnim
-import kotlinx.android.extensions.CacheImplementation
-import kotlinx.android.extensions.ContainerOptions
 import kotlinx.android.synthetic.main.item_home_discover.*
 
 /**
@@ -28,7 +26,7 @@ class HomeViewHolder(view: View) : BaseViewHolder(view) {
 
     fun bind(item: Movie) {
         tv_title?.text = item.title
-        iv_poster?.load(item.posterUrl) {
+        iv_poster?.load(item.getFullPathPosterUrl()) {
             transformations(RoundedCornersTransformation(roundedSize))
         }
 

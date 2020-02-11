@@ -2,6 +2,8 @@ package id.lukasdylan.movielicious
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEach
+import androidx.core.view.isNotEmpty
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -29,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            toolbar.menu?.takeIf { it.isNotEmpty() }?.forEach {
+                it.isVisible = false
+            }
             TransitionManager.beginDelayedTransition(toolbar)
         }
     }

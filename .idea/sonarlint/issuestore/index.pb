@@ -174,8 +174,6 @@ l
 <app/src/main/java/id/lukasdylan/movielicious/MainActivity.kt,e/7/e76125cd84d61aab20928f95617ada1912212f2c
 
 Odomain-movie/src/main/java/id/lukasdylan/domain/movie/usecase/GetDetailMovie.kt,2/2/2254c2e05178719890fcfd3282384e5e09c5c0c5
-{
-Kcore/src/main/java/id/lukasdylan/movielicious/core/utils/SingleLiveEvent.kt,b/1/b1c13def7cbaf2e6f800791f38be7aed2d3336af
 S
 #presentation-movie/build.gradle.kts,c/9/c9869c374c2d3a1ad6b9aab455b5afb1953b51ad
 |
@@ -218,3 +216,19 @@ bpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/
 hpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/MovieCreditsViewHolder.kt,3/5/354151e5e5cece931ebc09893f6e321d26ba2305
 
 Ocore-ui/src/main/java/id/lukasdylan/movielicious/core/ui/base/BaseViewHolder.kt,5/4/540c1bef49e88a94c52e976cdc1dd46a47e630b0
+Ž
+^core-ui/src/main/java/id/lukasdylan/movielicious/core/ui/base/BaseBottomSheetDialogFragment.kt,0/6/06e02b61c6038eb589a3ffe53cfbbf0ba7462953
+œ
+lpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/credits/CreditListFragment.kt,7/c/7c7df3d1ab94920400f7a0e93fd8998b3693fb3c
+›
+kpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/credits/CreditsViewHolder.kt,6/4/64251ced36e4290d74a6b2629611f096f982ee73
+¡
+qpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/credits/HeaderCreditsViewHolder.kt,e/1/e181f49f96da3858a27b33ccf3438b26a8a2cd8c
+˜
+hpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/credits/CreditsAdapter.kt,2/a/2a981f2466696456df6b5ed15b265d36d2835436
+ 
+ppresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/overview/MovieOverviewFragment.kt,6/0/6089675d568c5b8273f9927d03ab4061575327bf
+–
+fpresentation-movie/src/main/java/id/lukasdylan/movielicious/presentation/movie/DetailMovieNavigator.kt,6/8/6887090c015da36286c735ddb243c024dbdb1786
+t
+Dcore/src/main/java/id/lukasdylan/movielicious/core/utils/Constant.kt,8/3/837e1ab4089670c9f5abc2ce25664f9ecab006dc

@@ -8,7 +8,7 @@ import id.lukasdylan.domain.movie.usecase.GetDiscoverMovieListResult
 import id.lukasdylan.movielicious.core.base.BaseViewModel
 import id.lukasdylan.movielicious.core.base.UseCaseResult
 import id.lukasdylan.movielicious.core.base.ViewSideEffect
-import id.lukasdylan.movielicious.core.extension.call
+import id.lukasdylan.movielicious.core.extension.callUseCase
 import javax.inject.Inject
 
 /**
@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(private val getDiscoverMovieList: GetDis
         liveData(viewModelScope.coroutineContext) {
             when (action) {
                 is HomeAction.LoadDiscoverList -> {
-                    call(getDiscoverMovieList.getResult())
+                    callUseCase(getDiscoverMovieList.getResult())
                 }
             }
         }

@@ -3,8 +3,7 @@ package id.lukasdylan.movielicious.presentation.movie
 import id.lukasdylan.domain.movie.model.Cast
 import id.lukasdylan.domain.movie.model.Crew
 import id.lukasdylan.domain.movie.model.Movie
-import id.lukasdylan.movielicious.core.base.ViewAction
-import id.lukasdylan.movielicious.core.base.ViewState
+import id.lukasdylan.movielicious.core.base.*
 import id.lukasdylan.movielicious.core.utils.Event
 
 /**
@@ -17,6 +16,31 @@ data class DetailMovieViewState(
     val isLoading: Boolean = true
 ) : ViewState()
 
-sealed class DetailMovieAction : ViewAction() {
+sealed class DetailMovieAction : ViewAction {
     data class LoadMovieData(val movieId: Int) : DetailMovieAction()
+    object OpenDetailOverviewScreen : DetailMovieAction(), StatelessViewAction
+    object OpenCastCreditsScreen : DetailMovieAction(), StatelessViewAction
+}
+
+class DetailMovieViewSideEffect(val navigator: Event<Navigator>? = null) : ViewSideEffect() {
+
+    companion object {
+        @JvmStatic
+        fun navigateToDetailOverview(overview: String): DetailMovieViewSideEffect {
+            return DetailMovieViewSideEffect(
+                Event(
+                    DetailMovieNavigator.navigateToMovieOverviewScreen(overview)
+                )
+            )
+        }
+
+        @JvmStatic
+        fun navigateToCastCredits(dataCast: List<Cast>): DetailMovieViewSideEffect {
+            return DetailMovieViewSideEffect(
+                Event(
+                    DetailMovieNavigator.navigateToCastCreditsScreen(dataCast.toTypedArray())
+                )
+            )
+        }
+    }
 }

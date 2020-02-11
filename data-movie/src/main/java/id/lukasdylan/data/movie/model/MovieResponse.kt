@@ -13,9 +13,11 @@ data class MovieResponse(
     val id: Int?,
     val title: String?,
     @Json(name = "vote_average") val voteAverage: Double?,
+    @Json(name = "vote_count") val voteCount: Int?,
     @Json(name = "poster_path") val posterPath: String?,
     @Json(name = "backdrop_path") val backdropPath: String?,
     val genres: List<GenreResponse>?,
     val overview: String?,
-    @Json(name = "release_date") val releaseDate: String?
+    @Json(name = "release_date") val releaseDate: String?,
+    val runtime: Int?
 )

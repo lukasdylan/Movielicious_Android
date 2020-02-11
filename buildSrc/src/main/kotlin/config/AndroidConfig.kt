@@ -36,7 +36,6 @@ internal fun Project.configureAndroid() = this.extensions.getByType<AppExtension
         }
 
         getByName("debug") {
-            isTestCoverageEnabled = true
             isDebuggable = true
         }
     }
@@ -92,7 +91,6 @@ internal fun Project.configureLibraryAndroid(buildConfigCallback: (DefaultConfig
             }
 
             getByName("debug") {
-                isTestCoverageEnabled = true
                 isDebuggable = true
             }
         }

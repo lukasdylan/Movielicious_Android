@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="textPrimaryColor">@android:color/white</color>
     <color name="splashBackgroundColor">#121212</color>
+    <color name="loadingBackgroundColor">#A9A9A9</color>
 </resources>

@@ -13,6 +13,6 @@ data class HomeViewState(
     val isLoading: Boolean = true
 ) : ViewState()
 
-sealed class HomeAction : ViewAction() {
+sealed class HomeAction : ViewAction {
     object LoadDiscoverList : HomeAction()
 }

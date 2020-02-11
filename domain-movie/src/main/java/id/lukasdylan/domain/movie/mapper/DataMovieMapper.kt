@@ -1,6 +1,5 @@
 package id.lukasdylan.domain.movie.mapper
 
-import id.lukasdylan.data.movie.BuildConfig
 import id.lukasdylan.data.movie.model.CastResponse
 import id.lukasdylan.data.movie.model.CrewResponse
 import id.lukasdylan.data.movie.model.GenreResponse
@@ -24,9 +23,11 @@ fun MovieResponse.movieTransform(): Movie {
         rating = this.voteAverage ?: 0.0,
         overview = this.overview.orEmpty(),
         releaseDate = this.releaseDate.orEmpty(),
-        posterUrl = "${BuildConfig.MOVIE_IMAGE_BASE_URL}w185${this.posterPath.orEmpty()}",
-        backdropUrl = "${BuildConfig.MOVIE_IMAGE_BASE_URL}w300${this.backdropPath.orEmpty()}",
-        genres = this.genres.genresTransforms()
+        posterUrl = this.posterPath.orEmpty(),
+        backdropUrl = this.backdropPath.orEmpty(),
+        genres = this.genres.genresTransforms(),
+        runtime = this.runtime ?: 0,
+        voteCount = this.voteCount ?: 0
     )
 }
 
@@ -48,7 +49,7 @@ fun CastResponse.castTransform(): Cast {
         name = this.name.orEmpty(),
         characterName = this.character.orEmpty(),
         gender = this.gender ?: -1,
-        profilePath = "${BuildConfig.MOVIE_IMAGE_BASE_URL}w185${this.profilePath.orEmpty()}"
+        profilePath = this.profilePath.orEmpty()
     )
 }
 
@@ -62,6 +63,6 @@ fun CrewResponse.crewTransform(): Crew {
         name = this.name.orEmpty(),
         job = this.job.orEmpty(),
         gender = this.gender ?: -1,
-        profilePath = "${BuildConfig.MOVIE_IMAGE_BASE_URL}w185${this.profilePath.orEmpty()}"
+        profilePath = this.profilePath.orEmpty()
     )
 }

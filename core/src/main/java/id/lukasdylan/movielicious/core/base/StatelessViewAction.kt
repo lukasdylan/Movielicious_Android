@@ -1,3 +1,3 @@
 package id.lukasdylan.movielicious.core.base
 
-abstract class StatelessViewAction : ViewAction()
+interface StatelessViewAction : ViewAction

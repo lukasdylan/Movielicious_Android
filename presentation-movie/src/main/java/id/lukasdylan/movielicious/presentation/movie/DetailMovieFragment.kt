@@ -2,14 +2,16 @@ package id.lukasdylan.movielicious.presentation.movie
 
 import android.content.Context
 import android.os.Bundle
-import android.transition.TransitionManager
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import dagger.android.support.AndroidSupportInjection
@@ -31,8 +33,6 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
     @Inject
     lateinit var factory: ViewModelProvider.Factory
 
-    private val detailMovieFragmentArgs by navArgs<DetailMovieFragmentArgs>()
-
     private val viewModel: DetailMovieViewModel by viewModels(factoryProducer = { factory })
 
     private val castAdapter = MovieCastAdapter()
@@ -44,6 +44,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val detailMovieFragmentArgs by navArgs<DetailMovieFragmentArgs>()
         viewModel.execute(DetailMovieAction.LoadMovieData(detailMovieFragmentArgs.movieId))
     }
 
@@ -64,27 +65,43 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
             addItemDecoration(GridSpacingItemDecoration(10, dpToPx(12), true))
             adapter = castAdapter
         }
+        tv_more_credits?.setOnClickListener {
+            val dataCast = viewModel.viewState.value?.castList?.peekContent()?.toTypedArray()
+            val directions = DetailMovieFragmentDirections.openCreditListScreen(dataCast)
+            findNavController().navigate(directions)
+        }
+        tv_more_overview?.setOnClickListener {
+            val overview = tv_overview.text.toString()
+            val directions = DetailMovieFragmentDirections.openMovieOverviewScreen(overview)
+            findNavController().navigate(directions)
+        }
     }
 
     private fun renderDetailMovie(movie: Movie) {
-        iv_poster?.load(movie.posterUrl) {
+        iv_poster?.load(movie.getFullPathPosterUrl()) {
             val roundedSize = iv_poster.dpToPx(4).toFloat()
             transformations(RoundedCornersTransformation(roundedSize))
         }
-        iv_backdrop?.load(movie.backdropUrl) {
-            placeholder(null)
+        iv_backdrop?.load(movie.getFullPathBackdropUrl()) {
+            placeholder(R.drawable.bg_loading_placeholder)
         }
         tv_title?.text = movie.title
         tv_genre?.text = movie.getListOfGenreNames()
         tv_overview?.text = movie.overview
+        tv_runtime?.text = movie.getDurationText()
+        tv_rating?.text = movie.rating.toString()
+        tv_rating_count?.text = String.format(getString(R.string.vote_counts), movie.voteCount)
     }
 
     private fun renderMovieCast(data: List<Cast>) {
         castAdapter.submitList(data.take(10))
+        if (data.size > 10) tv_more_credits?.show() else tv_more_credits?.hide(true)
     }
 
     private fun showLoadingLayout(isLoading: Boolean) {
-        TransitionManager.beginDelayedTransition(root_layout)
-        if (isLoading) layout_loading?.show() else layout_loading?.hide()
+        TransitionManager.beginDelayedTransition(root_layout, AutoTransition().apply {
+            excludeTarget(nested_scroll_view, true)
+        })
+        if (isLoading) loading_view?.show() else loading_view?.hide()
     }
 }

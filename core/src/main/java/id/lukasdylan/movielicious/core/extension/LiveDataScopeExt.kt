@@ -7,10 +7,10 @@ import id.lukasdylan.movielicious.core.base.ViewSideEffect
 /**
  * Created by lukasdylan on 2020-01-01
  */
-suspend fun LiveDataScope<UseCaseResult>.call(block: UseCaseResult) {
+suspend fun LiveDataScope<UseCaseResult>.callUseCase(block: UseCaseResult) {
     emit(block)
 }
 
-suspend fun LiveDataScope<ViewSideEffect>.call(block: ViewSideEffect) {
+suspend fun <T : ViewSideEffect> LiveDataScope<T>.callSideEffect(block: T) {
     emit(block)
 }

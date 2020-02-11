@@ -29,11 +29,11 @@
         tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_loading_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_medium"
-        android:text="Please wait..."
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:fontFamily="@font/montserrat_regular"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         android:textColor="@color/textPrimaryColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
