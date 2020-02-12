@@ -35,8 +35,9 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie_v2) {
 
     private val viewModel: DetailMovieViewModel by viewModels(factoryProducer = { factory })
 
-    private val detailMovieAdapter =
+    private val detailMovieAdapter by lazy {
         DetailMovieAdapter()
+    }
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)

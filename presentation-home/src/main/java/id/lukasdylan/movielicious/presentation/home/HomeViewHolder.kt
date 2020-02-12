@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.item_home_discover.*
  */
 class HomeViewHolder(view: View) : BaseViewHolder(view) {
 
-    private val roundedSize = containerView.dpToPx(4).toFloat()
+    private val roundedSize = containerView.dpToPx(6).toFloat()
 
     private val navOptions by lazy {
         navOptions { slideLeftRightAnim() }

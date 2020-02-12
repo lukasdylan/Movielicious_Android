@@ -52,8 +52,6 @@ object Dependency {
     const val RETROFIT_MOCK = "com.squareup.retrofit2:retrofit-mock:${Version.RETROFIT}"
     const val ANDROIDX_CORE_TESTING =
         "androidx.arch.core:core-testing:${Version.ANDROIDX_CORE_TESTING}"
-    const val MOCKITO_KOTLIN =
-        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
     // endregion
 
     // region Instrument Test Library
@@ -80,7 +78,7 @@ object Dependency {
         const val DAGGER = "2.25.4"
         const val LOTTIE = "3.3.1"
         const val JUNIT = "4.12"
-        const val MOCKITO = "2.11.0"
+        const val MOCKITO = "3.2.4"
         const val ANDROIDX_CORE_TESTING = "2.1.0"
         const val TEST_EXT_JUNIT = "1.1.1"
         const val ESPRESSO_CORE = "3.2.0"

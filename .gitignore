@@ -15,3 +15,6 @@
 /buildSrc/build
 /.idea/sonarlint
 /.idea/sonarlint/issuestore
+*.jks
+/key
+*.apk

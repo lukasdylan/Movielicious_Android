@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_rounded_corner">8dp</dimen>
+    <dimen name="default_rounded_corner">12dp</dimen>
 </resources>

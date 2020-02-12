@@ -3,7 +3,9 @@
  */
 object ConfigurationType {
     const val IMPLEMENTATION = "implementation"
+    const val TEST_COMPILE = "testCompile"
     const val TEST_IMPLEMENTATION = "testImplementation"
+    const val ANDROID_TEST_COMPILE = "androidTestCompile"
     const val ANDROID_TEST_IMPLEMENTATION = "androidTestImplementation"
     const val API = "api"
     const val KOTLIN_ANNOTATION_PROCESSOR = "kapt"

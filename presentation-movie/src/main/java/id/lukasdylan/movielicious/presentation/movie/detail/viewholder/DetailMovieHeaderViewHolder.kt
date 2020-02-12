@@ -16,7 +16,7 @@ class DetailMovieHeaderViewHolder(view: View) : BaseViewHolder(view) {
 
     fun bind(movie: Movie) {
         iv_poster?.load(movie.getFullPathPosterUrl()) {
-            val roundedSize = iv_poster.dpToPx(4).toFloat()
+            val roundedSize = iv_poster.dpToPx(6).toFloat()
             transformations(RoundedCornersTransformation(roundedSize))
         }
         iv_backdrop?.load(movie.getFullPathBackdropUrl()) {
