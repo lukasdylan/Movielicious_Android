@@ -9,8 +9,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_profile"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@id/separator"
@@ -54,7 +54,7 @@
     <View
         android:id="@+id/separator"
         android:layout_width="0dp"
-        android:layout_height="4dp"
+        android:layout_height="2dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_line_separator"
         app:layout_constraintEnd_toEndOf="parent"

@@ -9,6 +9,7 @@ import id.lukasdylan.movielicious.core.base.BaseViewModel
 import id.lukasdylan.movielicious.core.base.UseCaseResult
 import id.lukasdylan.movielicious.core.base.ViewSideEffect
 import id.lukasdylan.movielicious.core.extension.callUseCase
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 /**
@@ -28,6 +29,7 @@ class HomeViewModel @Inject constructor(private val getDiscoverMovieList: GetDis
         liveData(viewModelScope.coroutineContext) {
             when (action) {
                 is HomeAction.LoadDiscoverList -> {
+                    delay(250)
                     callUseCase(getDiscoverMovieList.getResult())
                 }
             }

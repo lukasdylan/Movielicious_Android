@@ -25,7 +25,6 @@ class DispatcherProviderRule : TestRule {
                 Mockito.`when`(dispatcherProvider.default()).thenReturn(Dispatchers.Unconfined)
                 base?.evaluate()
             }
-
         }
     }
 

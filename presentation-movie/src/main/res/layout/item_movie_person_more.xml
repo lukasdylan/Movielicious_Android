@@ -8,14 +8,14 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_left_count"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@drawable/bg_circle_see_more"
         android:ellipsize="end"
         android:fontFamily="@font/montserrat_medium"
         android:gravity="center"
         android:lines="2"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textColor="@color/textPrimaryColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

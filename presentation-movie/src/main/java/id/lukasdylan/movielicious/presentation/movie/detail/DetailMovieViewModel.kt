@@ -12,6 +12,7 @@ import id.lukasdylan.movielicious.core.base.ViewSideEffect
 import id.lukasdylan.movielicious.core.extension.callUseCase
 import id.lukasdylan.movielicious.core.utils.Event
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -36,6 +37,7 @@ class DetailMovieViewModel @Inject constructor(
             when (action) {
                 is DetailMovieAction.LoadMovieData -> {
                     val movieId = action.movieId
+                    delay(250)
                     coroutineScope {
                         launch {
                             callUseCase(getDetailMovie.getResult(movieId))

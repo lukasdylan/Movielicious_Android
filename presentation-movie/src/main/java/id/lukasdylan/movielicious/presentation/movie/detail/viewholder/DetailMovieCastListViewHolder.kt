@@ -25,10 +25,7 @@ class DetailMovieCastListViewHolder(view: View, recycledViewPool: RecyclerView.R
     }
 
     fun bind(data: List<Cast>) {
-        val adapter =
-            DetailMovieCastListAdapter(
-                data
-            )
+        val adapter = DetailMovieCastListAdapter(data)
         rv_cast_crew?.adapter = adapter
     }
 }
