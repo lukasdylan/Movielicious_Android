@@ -9,18 +9,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@android:color/black</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-    </style>
-
-    <style name="TextAppearance.Toolbar.Title.Light" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
-    <style name="TextAppearance.Toolbar.Title.Dark" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="colorControlNormal">@color/textPrimaryColor</item>
     </style>
 
     <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
@@ -32,6 +21,20 @@
         <item name="bottomSheetStyle">@style/BottomSheet</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="LightAppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="DarkAppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="CustomToolbarTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textPrimaryColor</item>
     </style>
 
 </resources>

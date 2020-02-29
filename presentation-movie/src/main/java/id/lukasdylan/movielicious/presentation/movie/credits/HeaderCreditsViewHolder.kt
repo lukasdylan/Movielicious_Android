@@ -1,9 +1,9 @@
 package id.lukasdylan.movielicious.presentation.movie.credits
 
 import android.view.View
-import id.lukasdylan.movielicious.core.ui.base.BaseViewHolder
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by lukasdylan on 2020-02-09
  */
-class HeaderCreditsViewHolder(view: View) : BaseViewHolder(view)
+class HeaderCreditsViewHolder(view: View) : RecyclerView.ViewHolder(view)

@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import dagger.android.support.AndroidSupportInjection
 import id.lukasdylan.domain.movie.model.Movie
 import id.lukasdylan.movielicious.core.ui.dpToPx
+import id.lukasdylan.movielicious.core.ui.hide
+import id.lukasdylan.movielicious.core.ui.show
 import id.lukasdylan.movielicious.core.ui.widget.GridSpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -81,6 +83,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        pb_loading?.visibility = if (isLoading) View.VISIBLE else View.GONE
+        if (isLoading) pb_loading?.show() else pb_loading?.hide()
     }
 }

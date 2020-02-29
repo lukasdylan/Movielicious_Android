@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_list_cast_detail_movie.*
  * Created by lukasdylan on 2020-02-11
  */
 class DetailMovieCastListViewHolder(view: View, recycledViewPool: RecyclerView.RecycledViewPool) :
-    BaseViewHolder(view) {
+    BaseViewHolder<List<Cast>>(view) {
 
     init {
         rv_cast_crew?.apply {
@@ -24,8 +24,8 @@ class DetailMovieCastListViewHolder(view: View, recycledViewPool: RecyclerView.R
         }
     }
 
-    fun bind(data: List<Cast>) {
-        val adapter = DetailMovieCastListAdapter(data)
+    override fun bind(item: List<Cast>) {
+        val adapter = DetailMovieCastListAdapter(item)
         rv_cast_crew?.adapter = adapter
     }
 }

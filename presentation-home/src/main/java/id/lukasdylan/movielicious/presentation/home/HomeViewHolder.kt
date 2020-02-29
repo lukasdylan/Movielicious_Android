@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_home_discover.*
 /**
  * Created by lukasdylan on 2020-02-01
  */
-class HomeViewHolder(view: View) : BaseViewHolder(view) {
+class HomeViewHolder(view: View) : BaseViewHolder<Movie>(view) {
 
     private val roundedSize = containerView.dpToPx(6).toFloat()
 
@@ -24,7 +24,7 @@ class HomeViewHolder(view: View) : BaseViewHolder(view) {
         navOptions { slideLeftRightAnim() }
     }
 
-    fun bind(item: Movie) {
+    override fun bind(item: Movie) {
         tv_title?.text = item.title
         iv_poster?.load(item.getFullPathPosterUrl()) {
             transformations(RoundedCornersTransformation(roundedSize))
@@ -32,7 +32,7 @@ class HomeViewHolder(view: View) : BaseViewHolder(view) {
 
         root_layout?.setOnClickListener {
             val uri = Uri.parse("${BuildConfig.MOVIELICIOUS_HOSTNAME}detailmovie2/${item.id}")
-            it.findNavController().navigate(uri, navOptions)
+            it?.findNavController()?.navigate(uri, navOptions)
         }
     }
 }
