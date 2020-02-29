@@ -29,11 +29,7 @@ class CreditsAdapter(private val data: Array<out Cast>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is CreditsViewHolder) {
             val selectedData = data[position - 1]
-            holder.bind(
-                name = selectedData.name,
-                description = selectedData.characterName,
-                profileUrl = selectedData.getFullPathProfileUrl()
-            )
+            holder.bind(selectedData)
         }
     }
 

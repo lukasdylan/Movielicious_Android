@@ -57,11 +57,7 @@ class DetailMovieCastListAdapter(private val data: List<Cast>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is PersonViewHolder) {
             val selectedData = data[position]
-            holder.bind(
-                name = selectedData.name,
-                description = selectedData.characterName,
-                profileUrl = selectedData.getFullPathProfileUrl()
-            )
+            holder.bind(selectedData)
         } else if (holder is PersonMoreViewHolder) {
             holder.bind(data.size - MAX_PERSON_SHOWN)
         }
